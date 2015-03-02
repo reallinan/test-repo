@@ -1,0 +1,84 @@
+---
+output: word_document
+---
+---
+title: "DataFrame"
+author: "Neil"
+date: "Sunday, March 01, 2015"
+```{r}
+x <- 10:1
+y <- -4:5
+q <- c("Hockey", "Football", "Baseball", "Curling", "Rugby", "Lacrosse", "Basketball", "Tennis", 
+"Cricket", "Soccer")
+theDF <- data.frame(x, y, q)
+theDF
+theDF <- data.frame(First = x, Second = y, Sport = q)
+theDF
+
+class(theDF$Sport)
+
+theDF <- data.frame(First=x, Second=y, Sport=q, stringsAsFactors=FALSE)
+class(theDF$Sport)
+
+nrow(theDF)
+ncol(theDF)
+dim(theDF)
+
+NROW(theDF)
+nrow(x) #designed for dataframe
+length(x)
+NROW(x) #this is a safe-function which is suitable to many types of variables
+
+names(theDF)
+names(theDF)[3]
+
+rownames(theDF)
+rownames(theDF) <- c("One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten")
+
+rownames(theDF)
+theDF
+rownames(theDF)<-NULL
+rownames(theDF)
+
+head(theDF)
+head(theDF, n=7)
+tail(theDF)
+class(theDF)
+
+
+```
+
+Access the individual column in the data frame
+```{r}
+theDF$Sport
+theDF
+theDF[3,2]
+theDF[3,2:3]
+theDF[c(3,5),2]
+theDF[c(3,5), 2:3]
+theDF[,3]
+theDF[,2:3]
+theDF[,3]
+class(theDF[,3])
+theDF[,3,drop=FALSE]
+class(theDF[,3,drop=FALSE])
+class(theDF[2,]) #the reason why here theDF[2,] is a dataframe because it contains different types
+# of variables
+theDF[2:4,]
+
+theDF[, c("First","Sport")]
+theDF[, c("Sport","First")]
+theDF[,"Sport"]
+theDF[,"Sport", drop=FALSE]
+theDF["Sport"]
+theDF[["Sport"]]
+theDF[c("First","Sport")]
+
+
+```
+
+
+
+
+
+
